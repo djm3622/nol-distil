@@ -13,12 +13,12 @@ This repository is the code base for the **Diffusion Distillian via Fourier Neur
 ## Dataset
 The dataset is `Tiny Imagenet`, consisting of 100,000 training images across 200 classes at a resolution of 64x64.
 
-To download the data,
+To download the data.
 ```
 python dataset/fetch.py
 ```
 
-And to process the files into the working dataset,
+And to process the files into the working dataset.
 ```
 python dataset/process.py
 ```
