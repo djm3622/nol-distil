@@ -1,4 +1,35 @@
 dataset:
   project: nol-distil
   name: init
+
+  size: [64, 64]
+
+  # data augmentation
+  augment: True
+
+  # distributed loaded
+  workers_per_gpu: 4
   
+unet_model:
+  # distributed training parameters
+  epochs: 10
+  per_gpu_batch_size: 32
+  lr: 1e-5
+
+  # diffusion specific parameters
+  timesteps: 1000
+  scheduler: linear
+
+  # optimizer
+  optimizer: adamw
+
+  # learning rate schedular
+  lr_scheduler: one-cycle
+  max_lr: 1e-4
+
+  model_architecture: 
+    in_channels: 3
+    out_channels: 3
+
+    hidden_channels: [64, 128, 256, 512]
+    hidden_types: ['Conv', 'CrossAttnConv', 'CrossAttnConv', 'CrossAttnConv']

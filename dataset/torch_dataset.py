@@ -9,10 +9,8 @@ class DiffusionDataset(Dataset):
         return datasets.ImageFolder(root=dataset_dir)
 
     def __init__(self, dataset_dir, timesteps, augmentations=None):
-        self.dataset_dir = dataset_dir
         self.augmentations = augmentations
         self.timesteps = timesteps
-
         self.dataset = self.load_dataset(dataset_dir)
 
     def __len__(self):
