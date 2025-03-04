@@ -19,8 +19,13 @@ def get_train_valid_datasets(
         augmentation_pipeline = augment.DiffusionAugments()
 
     timestep = cfg['unet_model']['timesteps']
-    train_dataset = torch_dataset.DiffusionDataset(train_dir, timestep, augmentation_pipeline)
-    valid_dataset = torch_dataset.DiffusionDataset(valid_dir, timestep)
+    train_dataset = torch_dataset.DiffusionDataset(
+        train_dir, timestep, cfg, 
+        augmentation_pipeline
+    )
+    valid_dataset = torch_dataset.DiffusionDataset(
+        valid_dir, timestep, cfg
+    )
 
     return train_dataset, valid_dataset
 
